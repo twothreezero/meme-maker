@@ -36,6 +36,7 @@ function startPainting() {
 }
 function cancelPainting() {
   isPainting = false;
+  // ctx.fill(); // 라인으로 그리다가 채울 수 있는 옵션
   ctx.beginPath();
 }
 function onLineWidthChange(e) {
