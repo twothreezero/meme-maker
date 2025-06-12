@@ -7,6 +7,7 @@ const cleartBtn = document.getElementById("clear-btn");
 const eraserBtn = document.getElementById("eraser-btn");
 const fileInput = document.getElementById("file");
 const textInput = document.getElementById("text");
+const saveBtn = document.getElementById("save");
 
 const ctx = canvas.getContext("2d");
 
@@ -93,6 +94,13 @@ function onDoubleClick(e) {
     ctx.restore();
   }
 }
+function onSaveClick() {
+  const url = canvas.toDataURL();
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "myDrawing.png";
+  a.click();
+}
 
 canvas.addEventListener("mousemove", onMove);
 canvas.addEventListener("mousedown", startPainting);
@@ -108,3 +116,4 @@ modeBtn.addEventListener("click", onModeClick);
 cleartBtn.addEventListener("click", onClearClick);
 eraserBtn.addEventListener("click", onEraseClick);
 fileInput.addEventListener("change", onFileChange);
+saveBtn.addEventListener("click", onSaveClick);
